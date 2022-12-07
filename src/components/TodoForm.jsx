@@ -1,20 +1,16 @@
-import React from 'react'
+import React from "react";
 
-const TodoForm = ({handleSubmit, todo ,setTodo, editId}) => {
+const TodoForm = ({ handleSubmit, todo, editId, setTodo }) => {
   return (
-    <form className='todoform' onSubmit={handleSubmit}>
+    <form className="todoForm" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
+      />
+      <button type="submit"> {editId ? "Edit" : "Go"}</button>
+    </form>
+  );
+};
 
-          <input type="text" 
-            value={todo}
-            placeholder='Your Todo'
-            onChange={(e) => setTodo(e.target.value)} />
-
-          <button type='submit'> 
-            {editId ? "Edit" : "Go"} 
-          </button>
-
-        </form>
-  )
-}
-
-export default TodoForm
+export default TodoForm;
